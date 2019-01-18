@@ -69,6 +69,8 @@ def create_graph(dataset, arch):
         dummy_input = torch.randn((1, 3, 224, 224), requires_grad=False)
     elif dataset == 'cifar10':
         dummy_input = torch.randn((1, 3, 32, 32), requires_grad=False)
+    elif dataset == 'cifar100':
+        dummy_input = torch.randn((1, 3, 32, 32), requires_grad=False)
     assert dummy_input is not None, "Unsupported dataset ({}) - aborting draw operation".format(dataset)
 
     model = create_model(False, dataset, arch, parallel=False)

@@ -601,6 +601,8 @@ def dataset_dummy_input(dataset):
         dummy_input = Variable(torch.randn(1, 3, 224, 224), requires_grad=False)
     elif dataset == 'cifar10':
         dummy_input = Variable(torch.randn(1, 3, 32, 32))
+    elif dataset == 'cifar100':
+        dummy_input = Variable(torch.randn(1, 3, 32, 32))
     else:
         raise ValueError("Unsupported dataset (%s) - aborting draw operation" % dataset)
     return dummy_input

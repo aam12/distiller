@@ -17,7 +17,7 @@
 from math import floor
 import torch.nn as nn
 
-__all__ = ['mobilenet', 'mobilenet_025', 'mobilenet_050', 'mobilenet_075']
+__all__ = ['mobilenet_cifar100', 'mobilenet_025_cifar100', 'mobilenet_050_cifar100', 'mobilenet_075_cifar100']
 
 
 class MobileNet(nn.Module):
@@ -69,17 +69,17 @@ class MobileNet(nn.Module):
         return x
 
 
-def mobilenet_025():
+def mobilenet_025_cifar100():
     return MobileNet(channel_multiplier=0.25)
 
 
-def mobilenet_050():
+def mobilenet_050_cifar100():
     return MobileNet(channel_multiplier=0.5)
 
 
-def mobilenet_075():
+def mobilenet_075_cifar100():
     return MobileNet(channel_multiplier=0.75)
 
 
-def mobilenet():
+def mobilenet_cifar100():
     return MobileNet()

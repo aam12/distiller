@@ -500,6 +500,8 @@ def get_dummy_input(dataset):
         dummy_input = torch.randn(1, 3, 224, 224)
     elif dataset == 'cifar10':
         dummy_input = torch.randn(1, 3, 32, 32)
+    elif dataset == 'cifar100':
+        dummy_input = torch.randn(1, 3, 32, 32)
     else:
         raise ValueError("dataset %s is not supported" % dataset)
     return dummy_input

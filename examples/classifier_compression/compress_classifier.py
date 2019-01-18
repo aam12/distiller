@@ -147,14 +147,23 @@ def main():
             torch.cuda.set_device(args.gpus[0])
 
     # Infer the dataset from the model name
-    args.dataset = 'cifar10' if 'cifar' in args.arch else 'imagenet'
-    args.num_classes = 10 if args.dataset == 'cifar10' else 1000
+    if 'cifar100' in args.arch:
+        args.dataset = 'cifar100'
+        args.num_classes = 10
+    elif 'cifar10' in args.arch:
+        args.dataset = 'cifar10'
+        args.num_classes = 100
+    else:
+        args.dataset = 'imagenet'
+        args.num_classes = 1000
 
     if args.earlyexit_thresholds:
         args.num_exits = len(args.earlyexit_thresholds) + 1
         args.loss_exits = [0] * args.num_exits
         args.losses_exits = []
         args.exiterrors = []
+
+    msglogger.info('XXX %s == %s', args.dataset, args.arch)
 
     # Create the model
     model = create_model(args.pretrained, args.dataset, args.arch,
