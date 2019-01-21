@@ -163,8 +163,6 @@ def main():
         args.losses_exits = []
         args.exiterrors = []
 
-    msglogger.info('XXX %s == %s', args.dataset, args.arch)
-
     # Create the model
     model = create_model(args.pretrained, args.dataset, args.arch,
                          parallel=not args.load_serialized, device_ids=args.gpus)
