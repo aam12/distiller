@@ -149,10 +149,10 @@ def main():
     # Infer the dataset from the model name
     if 'cifar100' in args.arch:
         args.dataset = 'cifar100'
-        args.num_classes = 10
+        args.num_classes = 100
     elif 'cifar10' in args.arch:
         args.dataset = 'cifar10'
-        args.num_classes = 100
+        args.num_classes = 10
     else:
         args.dataset = 'imagenet'
         args.num_classes = 1000
