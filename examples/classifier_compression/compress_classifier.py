@@ -157,6 +157,8 @@ def main():
         args.dataset = 'imagenet'
         args.num_classes = 1000
 
+    msglogger.info('=> num_classes = %s', args.num_classes)
+
     if args.earlyexit_thresholds:
         args.num_exits = len(args.earlyexit_thresholds) + 1
         args.loss_exits = [0] * args.num_exits
@@ -214,7 +216,7 @@ def main():
         return sensitivity_analysis(model, criterion, test_loader, pylogger, args, sensitivities)
 
     if args.evaluate:
-        return evaluate_model(model, criterion, test_loader, pylogger, activations_collectors, args, compression_scheduler)
+        return evaluate_model(model, criterion, test_loader, pylogger, activations_collectors, args, compression_s100cheduler)
 
     if args.compress:
         # The main use-case for this sample application is CNN compression. Compression
