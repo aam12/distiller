@@ -42,22 +42,22 @@ class MobileNet(nn.Module):
 
         base_channels = [32, 64, 128, 256, 512, 1024]
         self.channels = [max(floor(n * channel_multiplier), min_channels) for n in base_channels]
-       
+
         self.model = nn.Sequential(
             nn.Sequential(*conv_bn_relu(3, self.channels[0], 3, stride=1, padding=1)),
             depthwise_conv(self.channels[0], self.channels[1], 1),
-            depthwise_conv(self.channels[1], self.channels[2], 1),
+           #depthwise_conv(self.channels[1], self.channels[2], 1),
             depthwise_conv(self.channels[2], self.channels[2], 1),
             depthwise_conv(self.channels[2], self.channels[3], 2),
-            depthwise_conv(self.channels[3], self.channels[3], 1),
+           #depthwise_conv(self.channels[3], self.channels[3], 1),
             depthwise_conv(self.channels[3], self.channels[4], 2),
-            depthwise_conv(self.channels[4], self.channels[4], 1),
-            depthwise_conv(self.channels[4], self.channels[4], 1),
-            depthwise_conv(self.channels[4], self.channels[4], 1),
-            depthwise_conv(self.channels[4], self.channels[4], 1),
+           #depthwise_conv(self.channels[4], self.channels[4], 1),
+           #depthwise_conv(self.channels[4], self.channels[4], 1),
+           #depthwise_conv(self.channels[4], self.channels[4], 1),
+           #depthwise_conv(self.channels[4], self.channels[4], 1),
             depthwise_conv(self.channels[4], self.channels[4], 1),
             depthwise_conv(self.channels[4], self.channels[5], 2),
-            depthwise_conv(self.channels[5], self.channels[5], 1),
+           #depthwise_conv(self.channels[5], self.channels[5], 1),
             nn.AvgPool2d(4),
         )
         self.fc = nn.Linear(self.channels[5], 100)
