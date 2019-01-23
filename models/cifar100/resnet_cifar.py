@@ -148,18 +148,18 @@ class ResNetCifar(nn.Module):
         return x
 
 
-def resnet20_cifar_100(**kwargs):
+def resnet20_cifar100(**kwargs):
     model = ResNetCifar(BasicBlock, [3, 3, 3], **kwargs)
     return model
 
-def resnet32_cifar_100(**kwargs):
+def resnet32_cifar100(**kwargs):
     model = ResNetCifar(BasicBlock, [5, 5, 5], **kwargs)
     return model
 
-def resnet44_cifar_100(**kwargs):
+def resnet44_cifar100(**kwargs):
     model = ResNetCifar(BasicBlock, [7, 7, 7], **kwargs)
     return model
 
-def resnet56_cifar_100(**kwargs):
+def resnet56_cifar100(**kwargs):
     model = ResNetCifar(BasicBlock, [9, 9, 9], **kwargs)
     return model
