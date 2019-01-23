@@ -17,5 +17,5 @@
 """This package contains CIFAR image classification models for pytorch"""
 
 from .mobilenet_cifar import *
-from .resnet_cifar100 import *
+from .resnet_cifar import *
 from .simplenet_cifar import *
