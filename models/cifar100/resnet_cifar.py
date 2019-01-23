@@ -39,7 +39,7 @@ import math
 import torch.utils.model_zoo as model_zoo
 
 
-__all__ = ['resnet20_cifar100', 'resnet32_cifar100', 'resnet44_cifar00', 'resnet56_cifar100']
+__all__ = ['resnet20_cifar100', 'resnet32_cifar100', 'resnet44_cifar100', 'resnet56_cifar100']
 
 NUM_CLASSES = 100
 
